@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>example_deepptrbf &mdash; RosenPy 1.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RosenPy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">rosenpy package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RosenPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">example_deepptrbf</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for example_deepptrbf</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;**RosenPy: An Open Source Python Framework for Complex-Valued Neural Networks**.</span>
+<span class="sd">*Copyright © A. A. Cruz, K. S. Mayer, D. S. Arantes*.</span>
+
+<span class="sd">*License*</span>
+
+<span class="sd">This file is part of RosenPy.</span>
+<span class="sd">RosenPy is an open source framework distributed under the terms of the GNU General </span>
+<span class="sd">Public License, as published by the Free Software Foundation, either version 3 of </span>
+<span class="sd">the License, or (at your option) any later version. For additional information on </span>
+<span class="sd">license terms, please open the Readme.md file.</span>
+
+<span class="sd">RosenPy is distributed in the hope that it will be useful to every user, but</span>
+<span class="sd">WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. </span>
+<span class="sd">See the GNU General Public License for more details. </span>
+
+<span class="sd">You should have received a copy of the GNU General Public License</span>
+<span class="sd">along with RosenPy.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A sample code for using the RosenPy platform with the Deep PTRBF Neural Network </span>
+<span class="sd">for the complex domain problem Cha and Kassan.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># Import the Deep PTRBF Neural Network module from RosenPy</span>
+<span class="kn">import</span> <span class="nn">rosenpymodel.deepptrbfnn</span> <span class="k">as</span> <span class="nn">mynn</span>
+<span class="kn">import</span> <span class="nn">rputils.utils</span> <span class="k">as</span> <span class="nn">utils</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="setData"><a class="viewcode-back" href="../example_deepptrbf.html#example_deepptrbf.setData">[docs]</a><span class="k">def</span> <span class="nf">setData</span><span class="p">():</span>
+    <span class="n">trainSetIn</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1204</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1204</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.7</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7</span><span class="p">;</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7</span><span class="p">;</span>
+    
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">1204</span> <span class="p">:</span>
+        <span class="n">a0</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.34</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.27</span><span class="p">)</span><span class="o">*</span><span class="n">a0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.87</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.43</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.34</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.21</span><span class="p">)</span><span class="o">*</span><span class="n">a2</span>
+        <span class="n">trainSetIn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aux</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">aux</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">aux</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+        
+        <span class="n">a2</span><span class="o">=</span><span class="n">a1</span>
+        <span class="n">a1</span><span class="o">=</span><span class="n">a0</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="o">.</span><span class="n">T</span><span class="p">[:</span><span class="mi">1204</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        
+    <span class="n">trainSetIn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">trainSetIn</span><span class="p">[:</span><span class="mi">1002</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">trainSetIn</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">1002</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">trainSetIn</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">1002</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="p">[:</span><span class="mi">1002</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">trainSetIn</span><span class="p">,</span> <span class="n">trainSetOut</span></div>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../example_deepptrbf.html#example_deepptrbf.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="c1"># Prepare the input and output data</span>
+        <span class="n">input_data</span><span class="p">,</span> <span class="n">output_data</span> <span class="o">=</span> <span class="n">setData</span><span class="p">()</span>
+                
+        <span class="c1"># Create an instance of the Deep PTRBF Neural Network     </span>
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">mynn</span><span class="o">.</span><span class="n">DeepPTRBFNN</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
+        
+        <span class="c1"># Add layers to the network</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">ishape</span><span class="o">=</span><span class="n">input_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">neurons</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">oshape</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="n">gamma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">sigma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">neurons</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">oshape</span><span class="o">=</span><span class="n">output_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gamma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">sigma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">)</span>
+    
+        <span class="c1"># Train the network</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">output_data</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+        <span class="c1"># Make predictions</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate and print accuracy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{:.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">output_data</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)))</span></div>
+
+
+
+<span class="n">main</span><span class="p">()</span>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ariadne A. Cruz, Kayol S. Mayer, Dalton S. Arantes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
