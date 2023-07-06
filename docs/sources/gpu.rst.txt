@@ -1,0 +1,7 @@
+gpu modules
+==========
+
+.. automodules:: gpu
+   :members:
+   :undoc-members:
+   :show-inheritance:

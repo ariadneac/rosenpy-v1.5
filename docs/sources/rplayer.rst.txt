@@ -1,0 +1,7 @@
+rplayer modules
+==============
+
+.. automodules:: rplayer
+   :members:
+   :undoc-members:
+   :show-inheritance:

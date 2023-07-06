@@ -1,0 +1,7 @@
+decayFunc modules
+================
+
+.. automodules:: decayFunc
+   :members:
+   :undoc-members:
+   :show-inheritance:

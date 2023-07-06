@@ -1,0 +1,7 @@
+regFunc modules
+==============
+
+.. automodules:: regFunc
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+initFunc modules
+===============
+
+.. automodules:: initFunc
+   :members:
+   :undoc-members:
+   :show-inheritance:

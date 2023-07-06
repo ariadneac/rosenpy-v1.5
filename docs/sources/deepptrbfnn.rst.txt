@@ -1,0 +1,7 @@
+deepptrbfnn modules
+==================
+
+.. automodules:: deepptrbfnn
+   :members:
+   :undoc-members:
+   :show-inheritance:

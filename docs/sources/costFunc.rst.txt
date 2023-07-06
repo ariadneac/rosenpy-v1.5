@@ -1,0 +1,7 @@
+costFunc modules
+===============
+
+.. automodules:: costFunc
+   :members:
+   :undoc-members:
+   :show-inheritance:

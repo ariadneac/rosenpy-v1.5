@@ -1,0 +1,7 @@
+batchGenFunc modules
+===================
+
+.. automodules:: batchGenFunc
+   :members:
+   :undoc-members:
+   :show-inheritance:
