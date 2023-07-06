@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>validation &mdash; RosenPy 1.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RosenPy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">rosenpy package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RosenPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">validation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for validation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Fri May  5 10:40:29 2023</span>
+
+<span class="sd">@author: User</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">rosenpymodel.deepptrbfnn</span> <span class="k">as</span> <span class="nn">mynn</span>
+<span class="c1">#import rosenpymodel.cvrbfnn as mynn</span>
+<span class="c1">#import rosenpymodel.fcrbfnn as mynn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="setData"><a class="viewcode-back" href="../validation.html#validation.setData">[docs]</a><span class="k">def</span> <span class="nf">setData</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="n">trainSetIn</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1204</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1204</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.7</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7</span><span class="p">;</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7</span><span class="p">;</span>
+    
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">1204</span> <span class="p">:</span>
+        <span class="n">a0</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.34</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.27</span><span class="p">)</span><span class="o">*</span><span class="n">a0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.87</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.43</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.34</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.21</span><span class="p">)</span><span class="o">*</span><span class="n">a2</span>
+        <span class="n">trainSetIn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aux</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">aux</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">aux</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+        
+        <span class="n">a2</span><span class="o">=</span><span class="n">a1</span>
+        <span class="n">a1</span><span class="o">=</span><span class="n">a0</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    
+        
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="p">[:</span><span class="mi">1204</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1">#x_test = np.array([trainSetIn[1000:1204-2], trainSetIn[1001:1204-1], trainSetIn[1002:1204]]).T</span>
+    <span class="c1">#y_test = trainSetOut[1000:1204-2]</span>
+    
+    <span class="n">trainSetIn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">trainSetIn</span><span class="p">[:</span><span class="mi">1002</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">trainSetIn</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">1002</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">trainSetIn</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">1002</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">trainSetOut</span> <span class="o">=</span> <span class="n">trainSetOut</span><span class="p">[:</span><span class="mi">1002</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">trainSetIn</span><span class="p">,</span> <span class="n">trainSetOut</span></div>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../validation.html#validation.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    
+        <span class="n">input_dim</span><span class="p">,</span> <span class="n">output_dim</span> <span class="o">=</span> <span class="n">setData</span><span class="p">()</span>
+     
+     
+   <span class="c1">## SCFFNN</span>
+
+      <span class="c1"># nn = mynn.SCFFNN(cost_func=costFunc.mse,  learning_rate = 1e-3)</span>
+      <span class="c1"># nn.addLayer(ishape=input_dim.shape[1], neurons=15, </span>
+      <span class="c1">#             weights_initializer=initFunc.random_normal, </span>
+      <span class="c1">#             bias_initializer=initFunc.random_normal, </span>
+      <span class="c1">#             activation=actFunc.tanh)</span>
+      <span class="c1"># nn.addLayer(neurons=output_dim.shape[1], </span>
+      <span class="c1">#             weights_initializer=initFunc.random_normal, </span>
+      <span class="c1">#             bias_initializer=initFunc.random_normal, </span>
+      <span class="c1">#             activation=actFunc.tanh)</span>
+    
+ 
+    
+    
+    <span class="c1">## CVRBF</span>
+
+        <span class="c1"># nn = mynn.CVRBFNN(learning_rate=1e-2, momentum=0.1)</span>
+        <span class="c1"># nn.addLayer(ishape=input_dim.shape[1], neurons=25, oshape=output_dim.shape[1], </span>
+        <span class="c1">#       weights_initializer=initFunc.random_normal,</span>
+        <span class="c1">#       bias_initializer=initFunc.ones, </span>
+        <span class="c1">#       gamma_rate=0.1, sigma_rate=0.1)</span>
+    
+    
+        <span class="c1"># nn.fit(input_dim, output_dim, epochs=1000, verbose=100, batch_size=1)</span>
+        <span class="c1"># y_pred = nn.predict(input_dim)</span>
+
+        <span class="c1"># print(&#39;Accuracy: {:.2f}%&#39;.format(100*(1-np.mean(np.abs((output_dim-y_pred))))))</span>
+    
+    <span class="c1">## FCRBFNN</span>
+    
+        <span class="c1"># nn = mynn.FCRBFNN(learning_rate=1e-3)</span>
+        
+        <span class="c1"># nn.addLayer(ishape=input_dim.shape[1], neurons=15, oshape=output_dim.shape[1], </span>
+        <span class="c1">#      gamma_rate=0.001, sigma_rate=0.01)</span>
+
+        <span class="c1"># nn.fit(input_dim, output_dim, epochs=1000, verbose=100, batch_size=1)</span>
+
+    
+        <span class="c1"># y_pred = nn.predict(input_dim)</span>
+     
+        <span class="c1"># print(&#39;Accuracy: {:.2f}%&#39;.format(100*(1-np.mean(np.abs((output_dim-y_pred))))))</span>
+     
+     
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">mynn</span><span class="o">.</span><span class="n">DeepPTRBFNN</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">ishape</span><span class="o">=</span><span class="n">input_dim</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">neurons</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">oshape</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="n">gamma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">sigma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">neurons</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">oshape</span><span class="o">=</span><span class="n">output_dim</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gamma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">sigma_rate</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">)</span>
+    
+        <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_dim</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{:.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">output_dim</span><span class="o">-</span><span class="n">y_pred</span><span class="p">))))))</span></div>
+
+<span class="n">main</span><span class="p">()</span>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ariadne A. Cruz, Kayol S. Mayer, Dalton S. Arantes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
