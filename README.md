@@ -1,5 +1,5 @@
 ﻿# RosenPy 
-[![Documentation Status](https://readthedocs.org/projects/tsfel/badge/?version=latest)](https://tsfel.readthedocs.io/en/latest/?badge=latest) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/tsfel)
+[![Documentation Status](https://camo.githubusercontent.com/215641eafa6393b10b76c6b74167baa8ba11e3083f2832052a4ddad0d452b15d/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f736861702f62616467652f3f76657273696f6e3d6c6174657374)](https://tsfel.readthedocs.io/en/latest/?badge=latest) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/tsfel)
 
 ![logo_rosenpy](docs/img/logo_rosenpy.png)
 ### What is RosenPy?
