@@ -1,4 +1,4 @@
-﻿# [logo_rosenpy](docs/img/ico_rosenpy.ico) RosenPy 
+﻿# RosenPy 
 [![Documentation Status](https://readthedocs.org/projects/tsfel/badge/?version=latest)](https://tsfel.readthedocs.io/en/latest/?badge=latest) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/tsfel)
 
 ![logo_rosenpy](docs/img/logo_rosenpy.png)
