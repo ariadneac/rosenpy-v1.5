@@ -10,6 +10,9 @@
 ### Dependencies
 - Python3.6+, Numpy
 
+### Documentation
+Read [our documentation](https://ariadneac.github.io/rosenpy-v1.5/index.html), learn from the demos.
+
 ### Authors
 - Ariadne Arrais Cruz – ariadne.arrais@gmail.com
 - Kayol Soares Mayer – kayolmayer@gmail.com
