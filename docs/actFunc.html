@@ -4,24 +4,24 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>actFunc module &mdash; RosenPy 1.5 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/ico_rosenpy.ico"/>
+  <title>actFunc modules &mdash; RosenPy 1.5 documentation</title>
+      <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="static/ico_rosenpy.ico"/>
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/js/theme.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+        <script src="static/doctools.js"></script>
+        <script src="static/sphinx_highlight.js"></script>
+    <script src="static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="batchGenFunc module" href="batchGenFunc.html" />
-    <link rel="prev" title="costFunc module" href="costFunc.html" /> 
+    <link rel="next" title="batchGenFunc modules" href="batchGenFunc.html" />
+    <link rel="prev" title="costFunc modules" href="costFunc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,7 +34,7 @@
           
           <a href="index.html">
             
-              <img src="_static/logo_rosenpy.png" class="logo" alt="Logo"/>
+              <img src="static/logo_rosenpy.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,12 +47,12 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome to RosenPy’s documentation!</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">RosenPy Package</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="rosenpymodule.html">RosenPyModule Package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="moduless.html">RosenPy Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rosenpymodules.html">RosenPymodules Package</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="rputils.html">RpUtils Package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="initFunc.html">initFunc module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="costFunc.html">costFunc module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">actFunc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="initFunc.html">initFunc modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="costFunc.html">costFunc modules</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">actFunc modules</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#actFunc.acos"><code class="docutils literal notranslate"><span class="pre">acos()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#actFunc.asin"><code class="docutils literal notranslate"><span class="pre">asin()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#actFunc.asinh"><code class="docutils literal notranslate"><span class="pre">asinh()</span></code></a></li>
@@ -67,10 +67,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#actFunc.tanh"><code class="docutils literal notranslate"><span class="pre">tanh()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="batchGenFunc.html">batchGenFunc module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decayFunc.html">decayFunc module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="regFunc.html">regFunc module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gpu.html">gpu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchGenFunc.html">batchGenFunc modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decayFunc.html">decayFunc modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regFunc.html">regFunc modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpu.html">gpu modules</a></li>
 </ul>
 </li>
 </ul>
@@ -92,11 +92,11 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">RosenPy Package</a></li>
+          <li class="breadcrumb-item"><a href="moduless.html">RosenPy Package</a></li>
           <li class="breadcrumb-item"><a href="rputils.html">RpUtils Package</a></li>
-      <li class="breadcrumb-item active">actFunc module</li>
+      <li class="breadcrumb-item active">actFunc modules</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/actFunc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="sources/actFunc.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -104,8 +104,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-actFunc">
-<span id="actfunc-module"></span><h1>actFunc module<a class="headerlink" href="#module-actFunc" title="Permalink to this heading"></a></h1>
+  <section id="modules-actFunc">
+<span id="actfunc-modules"></span><h1>actFunc modules<a class="headerlink" href="#modules-actFunc" title="Permalink to this heading"></a></h1>
 <p><strong>RosenPy: An Open Source Python Framework for Complex-Valued Neural Networks</strong>.
 <em>Copyright © A. A. Cruz, K. S. Mayer, D. S. Arantes</em>.</p>
 <p><em>License</em></p>
@@ -122,7 +122,7 @@ See the GNU General Public License for more details.</p>
 along with RosenPy.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.acos">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">acos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#acos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.acos" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">acos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#acos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.acos" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - arc cosine, element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -143,7 +143,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.asin">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">asin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#asin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.asin" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">asin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#asin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.asin" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - arc sine, element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -164,7 +164,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.asinh">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">asinh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#asinh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.asinh" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">asinh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#asinh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.asinh" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - inverse hyperbolic sine , element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -185,7 +185,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.atan">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">atan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#atan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.atan" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">atan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#atan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.atan" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - arc tangent, element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -206,7 +206,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.atanh">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">atanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#atanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.atanh" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">atanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#atanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.atanh" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - the inverse hyperbolic tangent , element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -227,7 +227,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.linear">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.linear" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.linear" title="Permalink to this definition"></a></dt>
 <dd><p>The linear activation function, also known as “no activation,” or
 “identity function” (multiplied x1.0)</p>
 <dl class="field-list simple">
@@ -249,7 +249,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.sech">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">sech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#sech"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.sech" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">sech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#sech"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.sech" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - the hyperbolic secant, element-wise.
 This is the FCRBFNN activation function.</p>
 <dl class="field-list simple">
@@ -271,7 +271,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.sin">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#sin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.sin" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#sin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.sin" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - sine, element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -292,7 +292,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.sinh">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">sinh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#sinh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.sinh" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">sinh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#sinh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.sinh" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - Hyperbolic sine, element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -313,7 +313,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.splitComplex">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">splitComplex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#splitComplex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.splitComplex" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">splitComplex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#splitComplex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.splitComplex" title="Permalink to this definition"></a></dt>
 <dd><p>This function is used in SCFFNN, since he activation functions that are separately
 applied to the real and imaginary components of the linear combination of
 each layer.</p>
@@ -337,7 +337,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.tan">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">tan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#tan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.tan" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">tan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#tan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.tan" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - tangent , element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -358,7 +358,7 @@ function (feedforward) or its derivative (backpropagation).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="actFunc.tanh">
-<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">tanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/actFunc.html#tanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.tanh" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">actFunc.</span></span><span class="sig-name descname"><span class="pre">tanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/actFunc.html#tanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actFunc.tanh" title="Permalink to this definition"></a></dt>
 <dd><p>Activation function - Hyperbolic tangent, element-wise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -383,8 +383,8 @@ function (feedforward) or its derivative (backpropagation).</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="costFunc.html" class="btn btn-neutral float-left" title="costFunc module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="batchGenFunc.html" class="btn btn-neutral float-right" title="batchGenFunc module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="costFunc.html" class="btn btn-neutral float-left" title="costFunc modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batchGenFunc.html" class="btn btn-neutral float-right" title="batchGenFunc modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
