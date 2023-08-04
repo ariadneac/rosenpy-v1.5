@@ -57,7 +57,7 @@ def main():
         input_data, output_data = setData()
                 
         # Create an instance of the Deep PTRBF Neural Network     
-        nn = mynn.DeepPTRBFNN(learning_rate=1e-2)
+        nn = mynn.DeepPTRBFNN(learning_rate=1e-2, gpu_enable=True)
         
         # Add layers to the network
         nn.addLayer(ishape=input_data.shape[1], neurons=4, oshape=5,  gamma_rate=1e-1, sigma_rate=1e-1)
