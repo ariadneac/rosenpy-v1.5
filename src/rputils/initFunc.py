@@ -23,17 +23,22 @@ This file contains various initialization functions for initializing complex mat
 
 """
 
-from rputils import gpu
+#from rputils import gpu
 
-xp = gpu.get_module()
+#xp = gpu.get_module()
 
 
-def zeros(rows, cols):
+
+
+def zeros(xp, rows, cols):
     """
     Initializes a complex matrix with all elements set to zero.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -47,12 +52,15 @@ def zeros(rows, cols):
     """
     return xp.zeros((rows,cols),dtype=complex)
 
-def ones(rows, cols):
+def ones(xp, rows, cols):
     """
     Initializes a complex matrix with all elements set to one.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -66,12 +74,15 @@ def ones(rows, cols):
     """
     return xp.ones((rows, cols),dtype=complex)+1j
 
-def ones_real(rows, cols):
+def ones_real(xp, rows, cols):
     """
     Initializes a real matrix with all elements set to one.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -85,12 +96,15 @@ def ones_real(rows, cols):
     """
     return xp.ones((rows, cols))
 
-def random_normal(rows, cols):
+def random_normal(xp, rows, cols):
     """
     Initializes a complex matrix with elements sampled from a normal distribution.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -106,12 +120,15 @@ def random_normal(rows, cols):
     imag = xp.random.randn(rows, cols).astype(xp.float32) - 0.5
     return (real + 1j * imag) / 10
 
-def random_uniform(rows, cols):
+def random_uniform(xp, rows, cols):
     """
     Initializes a complex matrix with elements sampled from a uniform distribution.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -127,12 +144,15 @@ def random_uniform(rows, cols):
     imag = xp.random.rand(rows, cols).astype(xp.float32) 
     return (real + 1j * imag) / 10
 
-def glorot_normal(rows, cols):
+def glorot_normal(xp, rows, cols):
     """
     Initializes a complex matrix using the Glorot normal initialization method.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -147,12 +167,15 @@ def glorot_normal(rows, cols):
     std_dev = xp.sqrt(2.0/(rows+cols))/10
     return (std_dev*xp.random.randn(rows, cols) + 1j*std_dev*xp.random.randn(rows, cols))/10
 
-def glorot_uniform(rows, cols):
+def glorot_uniform(xp, rows, cols):
     """
     Initializes a complex matrix using the Glorot uniform initialization method.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int
@@ -167,12 +190,15 @@ def glorot_uniform(rows, cols):
     std_dev = xp.sqrt(6.0/(rows+cols))/10
     return (2*std_dev*xp.random.randn(rows, cols)-std_dev + 1j*(std_dev*xp.random.randn(rows, cols)-std_dev))/5
 
-def rbf_default(rows, cols):
+def rbf_default(xp, rows, cols):
     """
     Initializes a complex matrix with elements generated from a random binary distribution.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     rows : int
         The number of rows in the matrix.
     cols : int

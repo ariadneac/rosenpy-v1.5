@@ -19,17 +19,15 @@ You should have received a copy of the GNU General Public License
 along with RosenPy.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
-from rputils import gpu
-
-xp = gpu.get_module()
-
-def mse(y, y_pred):
+def mse(xp, y, y_pred):
     """
     Calculates the mean squared error (MSE) between the target values (y) and predicted values (y_pred).
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     y : array-like
         The target values.
     y_pred : array-like

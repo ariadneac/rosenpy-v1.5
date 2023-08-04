@@ -24,23 +24,26 @@ This file contains a regularization function for applying L2 regularization.
 
 """
 
-from rputils import gpu
+#from rputils import gpu
 
-xp = gpu.get_module()
+#xp = gpu.get_module()
 
-def l2_regularization(lambda_init, reg_strength, epoch):
+def l2_regularization(xp, lambda_init, reg_strength, epoch):
     """
     Calculates the L2 regularization factor for a given epoch.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     lambda_init : float
         The initial lambda value.
     reg_strength : float
         The initial lambda value.
     epoch : int
         The current epoch of the training process.
-
+     
     Returns
     -------
     float

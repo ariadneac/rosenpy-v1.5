@@ -27,17 +27,16 @@ sequential or shuffled.
 
 """
 
-from rputils import gpu
 
-xp = gpu.get_module()
-
-
-def batch_sequential(x, y, batch_size=1):
+def batch_sequential(xp, x, y, batch_size=1):
     """
     Generates sequential batches of data for neural network training.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x: array-like, shape (n_samples, n_inputs)
         Training vectors as real numbers, where n_samples is the number of
         samples and n_inputs is the number of input features.
@@ -63,12 +62,15 @@ def batch_sequential(x, y, batch_size=1):
         y_batch.append(y[start:end])
     return xp.array(x_batch), xp.array(y_batch)
 
-def batch_shuffle(x, y, batch_size=1):
+def batch_shuffle(xp, x, y, batch_size=1):
     """
     Generates shuffled batches of data for neural network training.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x: array-like, shape (n_samples, n_inputs)
         Training vectors as real numbers, where n_samples is the number of
         samples and n_inputs is the number of input features.

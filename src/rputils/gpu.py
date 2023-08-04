@@ -21,19 +21,11 @@ along with RosenPy.  If not, see <http://www.gnu.org/licenses/>.
 
 import numpy as np
 
-gpu_enable = False
-try:
-    import cupy as cp
-    cupy = cp
-    gpu_enable = True
-except ImportError:
-    gpu_enable = False
-    
 
-def get_module():
+
+def module(module):
     """
-    This function is used to implement CPU/GPU generic code.  If there is a GPU, 
-    the cupy module is returned, otherwise the numpy module is returned.
+    This function is used to implement CPU/GPU generic code.  
     
     Returns
     -------
@@ -41,7 +33,16 @@ def get_module():
         It returns module `cupy` or `numpy`.
 
     """
-    if not gpu_enable:
-        return np
-    return cp
+    if module:
+        try:
+            import cupy as xp
+            print("Cupy module")
+        except ImportError:
+            print("Cupy is not installed. Using Numpy instead.")
+            xp = np
+    else: 
+        print("Numpy module")
+        xp = np
+        
+    return xp
 

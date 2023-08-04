@@ -19,11 +19,11 @@ You should have received a copy of the GNU General Public License
 along with RosenPy.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from rputils import gpu
+#from rputils import gpu
 
-xp = gpu.get_module()
-
-def split_set(x, y, train_size=0.7, random_state=None):
+#xp = gpu.get_module()
+import numpy as xp
+def split_set(xp, x, y, train_size=0.7, random_state=None):
     if random_state:
         rand_state = xp.random.RandomState(random_state)
         rand_state.shuffle(x)

@@ -24,21 +24,24 @@ This file contains all the activation functions used by RosenPy.
 
 """
 
-from rputils import gpu
+#from rputils import gpu
 
-xp = gpu.get_module()
+#xp = gpu.get_module()
 
-def sinh(x, derivative=False):
+def sinh(xp, x, derivative=False):
     """
     Activation function - Hyperbolic sine, element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
         The default is False.
-
+   
     Returns
     -------
     array_like
@@ -50,12 +53,15 @@ def sinh(x, derivative=False):
         return xp.cosh(x)
     return xp.sinh(x)
 
-def atanh(x, derivative=False):
+def atanh(xp, x, derivative=False):
     """
     Activation function - the inverse hyperbolic tangent , element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -72,12 +78,15 @@ def atanh(x, derivative=False):
         return 1/(1-xp.square(x))
     return xp.arctanh(x)
 
-def asinh(x, derivative=False):
+def asinh(xp, x, derivative=False):
     """
     Activation function - inverse hyperbolic sine , element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -94,12 +103,15 @@ def asinh(x, derivative=False):
         return 1/(1+xp.square(x))
     return xp.arcsinh(x)
 
-def tan(x, derivative=False):
+def tan(xp, x, derivative=False):
     """
     Activation function - tangent , element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -116,12 +128,15 @@ def tan(x, derivative=False):
         return 1/(xp.square(xp.cos(x)))
     return xp.tan(x)
 
-def sin(x, derivative=False):
+def sin(xp, x, derivative=False):
     """
     Activation function - sine, element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -138,12 +153,15 @@ def sin(x, derivative=False):
         return xp.cos(x)
     return xp.sin(x)
 
-def atan(x, derivative=False):  
+def atan(xp, x, derivative=False):  
     """
     Activation function - arc tangent, element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -160,12 +178,15 @@ def atan(x, derivative=False):
         return 1/(1+xp.square(x))
     return xp.arctan(x)
 
-def asin(x, derivative=False):
+def asin(xp, x, derivative=False):
     """
     Activation function - arc sine, element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -182,12 +203,15 @@ def asin(x, derivative=False):
         return 1/xp.sqrt((1-xp.square(x)))
     return xp.arcsin(x)
 
-def acos(x, derivative=False):
+def acos(xp, x, derivative=False):
     """
     Activation function - arc cosine, element-wise.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -204,13 +228,16 @@ def acos(x, derivative=False):
         return 1/xp.sqrt((xp.square(x)-1))
     return xp.arccos(x)
 
-def sech(x, derivative=False):
+def sech(xp, x, derivative=False):
     """
     Activation function - the hyperbolic secant, element-wise.
     This is the FCRBFNN activation function.
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -229,13 +256,16 @@ def sech(x, derivative=False):
         return -2 * ex / (ex + 1 / ex) ** 2
     return 2 / (ex + 1 / ex)
 
-def linear(x, derivative=False): 
+def linear(xp, x, derivative=False): 
     """
     The linear activation function, also known as "no activation," or 
     "identity function" (multiplied x1.0)
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     x : array_like
         Input array.
     derivative : bool, optional
@@ -250,12 +280,15 @@ def linear(x, derivative=False):
     """
     return xp.ones_like(x) if derivative else x
 
-def tanh(x, derivative=False):
+def tanh(xp, x, derivative=False):
      """
      Activation function - Hyperbolic tangent, element-wise.
 
      Parameters
      ----------
+     xp: str        
+         CuPy/Numpy module. This parameter is set at the time of 
+         initialization of the NeuralNetwork class.
      x : array_like
          Input array.
      derivative : bool, optional
@@ -272,7 +305,7 @@ def tanh(x, derivative=False):
          return 1-xp.square(xp.tanh(x))   
      return xp.tanh(x)
 
-def splitComplex(y, act, derivative=False):
+def splitComplex(xp, y, act, derivative=False):
     """
     This function is used in SCFFNN, since he activation functions that are separately
     applied to the real and imaginary components of the linear combination of
@@ -280,6 +313,9 @@ def splitComplex(y, act, derivative=False):
 
     Parameters
     ----------
+    xp: str        
+        CuPy/Numpy module. This parameter is set at the time of 
+        initialization of the NeuralNetwork class.
     y : array_like
         Input array.
     act : str
