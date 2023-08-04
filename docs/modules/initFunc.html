@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>initFunc &mdash; RosenPy 1.5 documentation</title>
-      <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="../static/ico_rosenpy.ico"/>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/ico_rosenpy.ico"/>
   <!--[if lt IE 9]>
-    <script src="../static/js/html5shiv.min.js"></script>
+    <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../static/jquery.js"></script>
-        <script src="../static/sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
-        <script src="../static/doctools.js"></script>
-        <script src="../static/sphinx_highlight.js"></script>
-    <script src="../static/js/theme.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -31,7 +31,7 @@
           
           <a href="../index.html">
             
-              <img src="../static/logo_rosenpy.png" class="logo" alt="Logo"/>
+              <img src="../_static/logo_rosenpy.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">modules code</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
       <li class="breadcrumb-item active">initFunc</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -98,17 +98,22 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">rputils</span> <span class="kn">import</span> <span class="n">gpu</span>
+<span class="c1">#from rputils import gpu</span>
 
-<span class="n">xp</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">get_modules</span><span class="p">()</span>
+<span class="c1">#xp = gpu.get_module()</span>
 
 
-<div class="viewcode-block" id="zeros"><a class="viewcode-back" href="../initFunc.html#initFunc.zeros">[docs]</a><span class="k">def</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+
+
+<div class="viewcode-block" id="zeros"><a class="viewcode-back" href="../initFunc.html#initFunc.zeros">[docs]</a><span class="k">def</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix with all elements set to zero.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -122,12 +127,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ones"><a class="viewcode-back" href="../initFunc.html#initFunc.ones">[docs]</a><span class="k">def</span> <span class="nf">ones</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="ones"><a class="viewcode-back" href="../initFunc.html#initFunc.ones">[docs]</a><span class="k">def</span> <span class="nf">ones</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix with all elements set to one.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -141,12 +149,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span></div>
 
-<div class="viewcode-block" id="ones_real"><a class="viewcode-back" href="../initFunc.html#initFunc.ones_real">[docs]</a><span class="k">def</span> <span class="nf">ones_real</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="ones_real"><a class="viewcode-back" href="../initFunc.html#initFunc.ones_real">[docs]</a><span class="k">def</span> <span class="nf">ones_real</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a real matrix with all elements set to one.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -160,12 +171,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="random_normal"><a class="viewcode-back" href="../initFunc.html#initFunc.random_normal">[docs]</a><span class="k">def</span> <span class="nf">random_normal</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="random_normal"><a class="viewcode-back" href="../initFunc.html#initFunc.random_normal">[docs]</a><span class="k">def</span> <span class="nf">random_normal</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix with elements sampled from a normal distribution.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -181,12 +195,15 @@
     <span class="n">imag</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">real</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">imag</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span></div>
 
-<div class="viewcode-block" id="random_uniform"><a class="viewcode-back" href="../initFunc.html#initFunc.random_uniform">[docs]</a><span class="k">def</span> <span class="nf">random_uniform</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="random_uniform"><a class="viewcode-back" href="../initFunc.html#initFunc.random_uniform">[docs]</a><span class="k">def</span> <span class="nf">random_uniform</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix with elements sampled from a uniform distribution.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -202,12 +219,15 @@
     <span class="n">imag</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> 
     <span class="k">return</span> <span class="p">(</span><span class="n">real</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">imag</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span></div>
 
-<div class="viewcode-block" id="glorot_normal"><a class="viewcode-back" href="../initFunc.html#initFunc.glorot_normal">[docs]</a><span class="k">def</span> <span class="nf">glorot_normal</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="glorot_normal"><a class="viewcode-back" href="../initFunc.html#initFunc.glorot_normal">[docs]</a><span class="k">def</span> <span class="nf">glorot_normal</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix using the Glorot normal initialization method.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -222,12 +242,15 @@
     <span class="n">std_dev</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="p">(</span><span class="n">rows</span><span class="o">+</span><span class="n">cols</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">std_dev</span><span class="o">*</span><span class="n">xp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">std_dev</span><span class="o">*</span><span class="n">xp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span></div>
 
-<div class="viewcode-block" id="glorot_uniform"><a class="viewcode-back" href="../initFunc.html#initFunc.glorot_uniform">[docs]</a><span class="k">def</span> <span class="nf">glorot_uniform</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="glorot_uniform"><a class="viewcode-back" href="../initFunc.html#initFunc.glorot_uniform">[docs]</a><span class="k">def</span> <span class="nf">glorot_uniform</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix using the Glorot uniform initialization method.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>
@@ -242,12 +265,15 @@
     <span class="n">std_dev</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">6.0</span><span class="o">/</span><span class="p">(</span><span class="n">rows</span><span class="o">+</span><span class="n">cols</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">std_dev</span><span class="o">*</span><span class="n">xp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span><span class="o">-</span><span class="n">std_dev</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">std_dev</span><span class="o">*</span><span class="n">xp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span><span class="o">-</span><span class="n">std_dev</span><span class="p">))</span><span class="o">/</span><span class="mi">5</span></div>
 
-<div class="viewcode-block" id="rbf_default"><a class="viewcode-back" href="../initFunc.html#initFunc.rbf_default">[docs]</a><span class="k">def</span> <span class="nf">rbf_default</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="rbf_default"><a class="viewcode-back" href="../initFunc.html#initFunc.rbf_default">[docs]</a><span class="k">def</span> <span class="nf">rbf_default</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes a complex matrix with elements generated from a random binary distribution.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    rows : int</span>
 <span class="sd">        The number of rows in the matrix.</span>
 <span class="sd">    cols : int</span>

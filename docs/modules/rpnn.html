@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>rpnn &mdash; RosenPy 1.5 documentation</title>
-      <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="../static/ico_rosenpy.ico"/>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/ico_rosenpy.ico"/>
   <!--[if lt IE 9]>
-    <script src="../static/js/html5shiv.min.js"></script>
+    <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../static/jquery.js"></script>
-        <script src="../static/sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
-        <script src="../static/doctools.js"></script>
-        <script src="../static/sphinx_highlight.js"></script>
-    <script src="../static/js/theme.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -31,7 +31,7 @@
           
           <a href="../index.html">
             
-              <img src="../static/logo_rosenpy.png" class="logo" alt="Logo"/>
+              <img src="../_static/logo_rosenpy.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">modules code</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
       <li class="breadcrumb-item active">rpnn</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -103,7 +103,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost_func</span><span class="o">=</span><span class="n">costFunc</span><span class="o">.</span><span class="n">mse</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">lr_decay_method</span><span class="o">=</span><span class="n">decayFunc</span><span class="o">.</span><span class="n">none_decay</span><span class="p">,</span>  
-                 <span class="n">lr_decay_rate</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">lr_decay_steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">10000000000000</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>     
+                 <span class="n">lr_decay_rate</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">lr_decay_steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">10000000000000</span><span class="p">,</span> <span class="n">gpu_enable</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>     
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        The __init__ method is the constructor of the NeuralNetwork class. </span>
 <span class="sd">        It initializes the model with default values for various parameters, like</span>
@@ -159,15 +159,14 @@
 <span class="sd">                until the loss in the validation dataset decreases sufficiently for the training to </span>
 <span class="sd">                be terminated.</span>
 <span class="sd">                </span>
-<span class="sd">            xp: str, optional.</span>
-<span class="sd">                The xp attribute stores the modules for performing computations (e.g., NumPy or GPU modules). </span>
-<span class="sd">                It can be set directly by the user or automatically by the system.</span>
+<span class="sd">            gpu_enable: bool.</span>
+<span class="sd">                The gpu_enable defines whether GPU or CPU will be used.</span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        None.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">xp</span> <span class="o">=</span> <span class="n">xp</span> <span class="k">if</span> <span class="n">xp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">gpu</span><span class="o">.</span><span class="n">get_modules</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xp</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">module</span><span class="p">(</span><span class="n">gpu_enable</span><span class="p">)</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cost_func</span> <span class="o">=</span> <span class="n">cost_func</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span> <span class="o">=</span> <span class="n">momentum</span>
@@ -243,7 +242,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_decay_method</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_initial</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_decay_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_decay_steps</span><span class="p">)</span>
        
             <span class="c1"># It generates batches of training data using the specified batch generation function</span>
-            <span class="n">x_batch</span><span class="p">,</span> <span class="n">y_batch</span> <span class="o">=</span> <span class="n">batch_gen</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+            <span class="n">x_batch</span><span class="p">,</span> <span class="n">y_batch</span> <span class="o">=</span> <span class="n">batch_gen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xp</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
         
         
             <span class="c1"># For each batch, it performs feedforward and backpropagation to update the model&#39;s parameters</span>
@@ -253,7 +252,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">backprop</span><span class="p">(</span><span class="n">y_batch1</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>   
                     
             <span class="c1"># After each epoch, it calculates the loss value for the validation data </span>
-            <span class="n">loss_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_func</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_val</span><span class="p">))</span>
+            <span class="n">loss_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xp</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_val</span><span class="p">))</span>
             
             <span class="c1"># If the patience value is set, it checks if the loss value has improved</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">!=</span> <span class="mi">10000000000000</span><span class="p">:</span>
@@ -274,7 +273,7 @@
             <span class="c1"># If the epoch number is divisible by the verbose value, it calculates the loss value for </span>
             <span class="c1"># the training data and updates the training history</span>
             <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">verbose</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">loss_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_func</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">))</span>
+                <span class="n">loss_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">))</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="p">[</span><span class="s1">&#39;epochs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_train</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="p">[</span><span class="s1">&#39;loss_val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_val</span><span class="p">)</span>

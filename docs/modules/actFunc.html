@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>actFunc &mdash; RosenPy 1.5 documentation</title>
-      <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="../static/ico_rosenpy.ico"/>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/ico_rosenpy.ico"/>
   <!--[if lt IE 9]>
-    <script src="../static/js/html5shiv.min.js"></script>
+    <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../static/jquery.js"></script>
-        <script src="../static/sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
-        <script src="../static/doctools.js"></script>
-        <script src="../static/sphinx_highlight.js"></script>
-    <script src="../static/js/theme.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -31,7 +31,7 @@
           
           <a href="../index.html">
             
-              <img src="../static/logo_rosenpy.png" class="logo" alt="Logo"/>
+              <img src="../_static/logo_rosenpy.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">modules code</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
       <li class="breadcrumb-item active">actFunc</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -99,21 +99,24 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">rputils</span> <span class="kn">import</span> <span class="n">gpu</span>
+<span class="c1">#from rputils import gpu</span>
 
-<span class="n">xp</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">get_modules</span><span class="p">()</span>
+<span class="c1">#xp = gpu.get_module()</span>
 
-<div class="viewcode-block" id="sinh"><a class="viewcode-back" href="../actFunc.html#actFunc.sinh">[docs]</a><span class="k">def</span> <span class="nf">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="sinh"><a class="viewcode-back" href="../actFunc.html#actFunc.sinh">[docs]</a><span class="k">def</span> <span class="nf">sinh</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - Hyperbolic sine, element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
 <span class="sd">        The default is False.</span>
-
+<span class="sd">   </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array_like</span>
@@ -125,12 +128,15 @@
         <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="atanh"><a class="viewcode-back" href="../actFunc.html#actFunc.atanh">[docs]</a><span class="k">def</span> <span class="nf">atanh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="atanh"><a class="viewcode-back" href="../actFunc.html#actFunc.atanh">[docs]</a><span class="k">def</span> <span class="nf">atanh</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - the inverse hyperbolic tangent , element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -147,12 +153,15 @@
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="asinh"><a class="viewcode-back" href="../actFunc.html#actFunc.asinh">[docs]</a><span class="k">def</span> <span class="nf">asinh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="asinh"><a class="viewcode-back" href="../actFunc.html#actFunc.asinh">[docs]</a><span class="k">def</span> <span class="nf">asinh</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - inverse hyperbolic sine , element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -169,12 +178,15 @@
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">arcsinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="tan"><a class="viewcode-back" href="../actFunc.html#actFunc.tan">[docs]</a><span class="k">def</span> <span class="nf">tan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="tan"><a class="viewcode-back" href="../actFunc.html#actFunc.tan">[docs]</a><span class="k">def</span> <span class="nf">tan</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - tangent , element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -191,12 +203,15 @@
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="sin"><a class="viewcode-back" href="../actFunc.html#actFunc.sin">[docs]</a><span class="k">def</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="sin"><a class="viewcode-back" href="../actFunc.html#actFunc.sin">[docs]</a><span class="k">def</span> <span class="nf">sin</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - sine, element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -213,12 +228,15 @@
         <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="atan"><a class="viewcode-back" href="../actFunc.html#actFunc.atan">[docs]</a><span class="k">def</span> <span class="nf">atan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>  
+<div class="viewcode-block" id="atan"><a class="viewcode-back" href="../actFunc.html#actFunc.atan">[docs]</a><span class="k">def</span> <span class="nf">atan</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>  
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - arc tangent, element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -235,12 +253,15 @@
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="asin"><a class="viewcode-back" href="../actFunc.html#actFunc.asin">[docs]</a><span class="k">def</span> <span class="nf">asin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="asin"><a class="viewcode-back" href="../actFunc.html#actFunc.asin">[docs]</a><span class="k">def</span> <span class="nf">asin</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - arc sine, element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -257,12 +278,15 @@
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">xp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="acos"><a class="viewcode-back" href="../actFunc.html#actFunc.acos">[docs]</a><span class="k">def</span> <span class="nf">acos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="acos"><a class="viewcode-back" href="../actFunc.html#actFunc.acos">[docs]</a><span class="k">def</span> <span class="nf">acos</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - arc cosine, element-wise.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -279,13 +303,16 @@
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">xp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="sech"><a class="viewcode-back" href="../actFunc.html#actFunc.sech">[docs]</a><span class="k">def</span> <span class="nf">sech</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="sech"><a class="viewcode-back" href="../actFunc.html#actFunc.sech">[docs]</a><span class="k">def</span> <span class="nf">sech</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Activation function - the hyperbolic secant, element-wise.</span>
 <span class="sd">    This is the FCRBFNN activation function.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -304,13 +331,16 @@
         <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ex</span> <span class="o">/</span> <span class="p">(</span><span class="n">ex</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">ex</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">ex</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">ex</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="linear"><a class="viewcode-back" href="../actFunc.html#actFunc.linear">[docs]</a><span class="k">def</span> <span class="nf">linear</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span> 
+<div class="viewcode-block" id="linear"><a class="viewcode-back" href="../actFunc.html#actFunc.linear">[docs]</a><span class="k">def</span> <span class="nf">linear</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The linear activation function, also known as &quot;no activation,&quot; or </span>
 <span class="sd">    &quot;identity function&quot; (multiplied x1.0)</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    x : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    derivative : bool, optional</span>
@@ -325,12 +355,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">derivative</span> <span class="k">else</span> <span class="n">x</span></div>
 
-<div class="viewcode-block" id="tanh"><a class="viewcode-back" href="../actFunc.html#actFunc.tanh">[docs]</a><span class="k">def</span> <span class="nf">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="tanh"><a class="viewcode-back" href="../actFunc.html#actFunc.tanh">[docs]</a><span class="k">def</span> <span class="nf">tanh</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">     Activation function - Hyperbolic tangent, element-wise.</span>
 
 <span class="sd">     Parameters</span>
 <span class="sd">     ----------</span>
+<span class="sd">     xp: str        </span>
+<span class="sd">         CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">         initialization of the NeuralNetwork class.</span>
 <span class="sd">     x : array_like</span>
 <span class="sd">         Input array.</span>
 <span class="sd">     derivative : bool, optional</span>
@@ -347,7 +380,7 @@
          <span class="k">return</span> <span class="mi">1</span><span class="o">-</span><span class="n">xp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>   
      <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="splitComplex"><a class="viewcode-back" href="../actFunc.html#actFunc.splitComplex">[docs]</a><span class="k">def</span> <span class="nf">splitComplex</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="splitComplex"><a class="viewcode-back" href="../actFunc.html#actFunc.splitComplex">[docs]</a><span class="k">def</span> <span class="nf">splitComplex</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function is used in SCFFNN, since he activation functions that are separately</span>
 <span class="sd">    applied to the real and imaginary components of the linear combination of</span>
@@ -355,6 +388,9 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    xp: str        </span>
+<span class="sd">        CuPy/Numpy module. This parameter is set at the time of </span>
+<span class="sd">        initialization of the NeuralNetwork class.</span>
 <span class="sd">    y : array_like</span>
 <span class="sd">        Input array.</span>
 <span class="sd">    act : str</span>
