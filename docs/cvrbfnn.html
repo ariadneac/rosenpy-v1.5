@@ -5,19 +5,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cvrbfnn module &mdash; RosenPy 1.5 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/ico_rosenpy.ico"/>
+      <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="static/ico_rosenpy.ico"/>
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/js/theme.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+        <script src="static/doctools.js"></script>
+        <script src="static/sphinx_highlight.js"></script>
+    <script src="static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="fcrbfnn module" href="fcrbfnn.html" />
@@ -34,7 +34,7 @@
           
           <a href="index.html">
             
-              <img src="_static/logo_rosenpy.png" class="logo" alt="Logo"/>
+              <img src="static/logo_rosenpy.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -111,7 +111,7 @@ See the GNU General Public License for more details.</p>
 along with RosenPy.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="cvrbfnn.CVRBFNN">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cvrbfnn.</span></span><span class="sig-name descname"><span class="pre">CVRBFNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost_func=&lt;function</span> <span class="pre">mse&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate=0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_decay_method=&lt;function</span> <span class="pre">none_decay&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_decay_rate=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_decay_steps=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience=10000000000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_enable=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cvrbfnn.html#CVRBFNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cvrbfnn.</span></span><span class="sig-name descname"><span class="pre">CVRBFNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost_func=&lt;function</span> <span class="pre">mse&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate=0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_decay_method=&lt;function</span> <span class="pre">none_decay&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_decay_rate=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_decay_steps=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience=10000000000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_enable=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/cvrbfnn.html#CVRBFNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralNetwork</span></code></p>
 <p>Specification for the Complex Valued Radial Basis Function Neural Network to be passed
 to the model in construction.
@@ -119,7 +119,7 @@ This includes the feedforward, backpropagation and adding layer methods specific
 <p>This class derives from NeuralNetwork class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cvrbfnn.CVRBFNN.addLayer">
-<span class="sig-name descname"><span class="pre">addLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ishape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oshape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_initializer=&lt;function</span> <span class="pre">random_normal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_initializer=&lt;function</span> <span class="pre">ones_real&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_initializer=&lt;function</span> <span class="pre">ones&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_initializer=&lt;function</span> <span class="pre">rbf_default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_strength=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_init=0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_rate=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_rate=0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cvrbfnn.html#CVRBFNN.addLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN.addLayer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ishape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oshape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_initializer=&lt;function</span> <span class="pre">random_normal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_initializer=&lt;function</span> <span class="pre">ones_real&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_initializer=&lt;function</span> <span class="pre">ones&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_initializer=&lt;function</span> <span class="pre">rbf_default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_strength=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_init=0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_rate=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_rate=0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/cvrbfnn.html#CVRBFNN.addLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN.addLayer" title="Permalink to this definition"></a></dt>
 <dd><p>The method is responsible for adding the layers to the neural network.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -147,7 +147,7 @@ that regularization is turned off. The default is 0.0.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cvrbfnn.CVRBFNN.backprop">
-<span class="sig-name descname"><span class="pre">backprop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cvrbfnn.html#CVRBFNN.backprop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN.backprop" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">backprop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/cvrbfnn.html#CVRBFNN.backprop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN.backprop" title="Permalink to this definition"></a></dt>
 <dd><p>This class provids a way to calculate the gradients of a target class output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -165,7 +165,7 @@ that regularization is turned off. The default is 0.0.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cvrbfnn.CVRBFNN.feedforward">
-<span class="sig-name descname"><span class="pre">feedforward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cvrbfnn.html#CVRBFNN.feedforward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN.feedforward" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">feedforward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/cvrbfnn.html#CVRBFNN.feedforward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cvrbfnn.CVRBFNN.feedforward" title="Permalink to this definition"></a></dt>
 <dd><p>This method returns the output of the network if <code class="docutils literal notranslate"><span class="pre">x</span></code> is input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
