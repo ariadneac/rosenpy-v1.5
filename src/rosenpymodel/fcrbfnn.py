@@ -163,5 +163,6 @@ class FCRBFNN(rpnn.NeuralNetwork):
                                           lambda_init=lambda_init, 
                                           sigma_rate=sigma_rate,
                                           gamma_rate=gamma_rate,
-                                          cvnn=3))
+                                          cvnn=3,
+                                          xp=self.xp))
                

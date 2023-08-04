@@ -29,7 +29,7 @@ class Layer():
     def __init__(self, ishape, neurons, oshape=0, weights_initializer=initFunc.random_normal, 
                  bias_initializer=initFunc.random_normal, gamma_initializer=initFunc.rbf_default, 
                  sigma_initializer=initFunc.ones, activation=actFunc.tanh, reg_strength=0.0, 
-                 lambda_init=0.1, gamma_rate=0.0, sigma_rate=0.0, cvnn=1):
+                 lambda_init=0.1, gamma_rate=0.0, sigma_rate=0.0, cvnn=1, xp=None):
         
         """ 
         The __init__ method is the constructor of the Layer class. 
@@ -102,11 +102,14 @@ class Layer():
                 * 2: CVRBFNN
                 * 3: FCRBFNN
                 * 4: Deep PTRBFNN
+            xp: str
+                CuPy/Numpy module. This parameter is set at the time of 
+                initialization of the NeuralNetwork class.
         Returns
         -------
             None.
         """
-        
+        self.xp = xp
         self.input = None
      
         self.input = None
@@ -126,56 +129,56 @@ class Layer():
         ## It initializes parameters for feedforward (FF) networks (CVFFNN and SCFFNN). 
         ## This includes initializing weights, biases, activation
         if cvnn==1:
-            self.weights = weights_initializer(ishape, neurons)
-            self.biases = bias_initializer(1, neurons)
+            self.weights = weights_initializer(xp, ishape, neurons)
+            self.biases = bias_initializer(xp, 1, neurons)
             self.activation = activation
-            self._dweights = self._prev_dweights = initFunc.zeros(ishape, neurons)
-            self._dbiases = self._prev_dbiases = initFunc.zeros(1, neurons)
+            self._dweights = self._prev_dweights = initFunc.zeros(xp, ishape, neurons)
+            self._dbiases = self._prev_dbiases = initFunc.zeros(xp, 1, neurons)
             
         ## It initializes parameters for CVRBFNN. 
         ## This includes initializing weights, biases, gamma and sigma 
         elif cvnn==2:
-            self.weights = weights_initializer(neurons, oshape)
+            self.weights = weights_initializer(xp, neurons, oshape)
             
-            self.biases = bias_initializer(oshape, 1)
+            self.biases = bias_initializer(xp, oshape, 1)
             
-            self._dweights = self._prev_dweights = initFunc.zeros(neurons, oshape)
-            self._dbiases = self._prev_dbiases = initFunc.zeros(oshape, 1)
+            self._dweights = self._prev_dweights = initFunc.zeros(xp, neurons, oshape)
+            self._dbiases = self._prev_dbiases = initFunc.zeros(xp,oshape, 1)
             
-            self.gamma = gamma_initializer(neurons, ishape)
-            self.sigma = sigma_initializer(1, neurons)
+            self.gamma = gamma_initializer(xp, neurons, ishape) 
+            self.sigma = sigma_initializer(xp, 1, neurons)
             
-            self._prev_dgamma = self._dgamma = initFunc.zeros(neurons, ishape)
-            self._prev_dsigma = self._dsigma = initFunc.zeros(1, neurons)
+            self._prev_dgamma = self._dgamma = initFunc.zeros(xp, neurons, ishape)
+            self._prev_dsigma = self._dsigma = initFunc.zeros(xp, 1, neurons)
             
         ## It initializes parameters for FCRBFNN. 
         ## This includes initializing weights, biases, gamma and sigma 
         elif cvnn==3:
-            self.weights = weights_initializer(neurons, oshape)
-            self.biases = bias_initializer(oshape, 1)
+            self.weights = weights_initializer(xp, neurons, oshape)
+            self.biases = bias_initializer(xp, oshape, 1)
         
-            self._dweights = self._prev_dweights = initFunc.zeros(neurons, oshape)
-            self._dbiases = self._prev_dbiases = initFunc.zeros(oshape, 1)
+            self._dweights = self._prev_dweights = initFunc.zeros(xp, neurons, oshape)
+            self._dbiases = self._prev_dbiases = initFunc.zeros(xp, oshape, 1)
             
-            self.gamma = initFunc.rbf_default(neurons, ishape) #gpu.get_module().random.randint(2, size=[neurons,ishape])*0.7 + 1j*(gpu.get_module().random.randint(2, size=[neurons,ishape])*2-1)*0.7
-            self.sigma = initFunc.rbf_default(neurons, ishape) #gpu.get_module().random.randint(2, size=[neurons,ishape])*0.7 + 1j*(gpu.get_module().random.randint(2, size=[neurons,ishape])*2-1)*0.7
+            self.gamma = initFunc.rbf_default(xp, neurons, ishape) #gpu.get_module().random.randint(2, size=[neurons,ishape])*0.7 + 1j*(gpu.get_module().random.randint(2, size=[neurons,ishape])*2-1)*0.7
+            self.sigma = initFunc.rbf_default(xp, neurons, ishape) #gpu.get_module().random.randint(2, size=[neurons,ishape])*0.7 + 1j*(gpu.get_module().random.randint(2, size=[neurons,ishape])*2-1)*0.7
         
-            self._prev_dgamma = self._dgamma = initFunc.zeros(neurons, ishape)
-            self._prev_dsigma = self._dsigma = initFunc.zeros(neurons, ishape)
+            self._prev_dgamma = self._dgamma = initFunc.zeros(xp, neurons, ishape)
+            self._prev_dsigma = self._dsigma = initFunc.zeros(xp, neurons, ishape)
             
         ## It initializes parameters for DeepPTRBFNN. 
         ## This includes initializing weights, biases, gamma and sigma     
         elif cvnn==4:
-            self.weights = weights_initializer(neurons, oshape)
-            self.biases = bias_initializer(1, oshape)
-            self.gamma =  initFunc.rbf_default(neurons, ishape) #gpu.get_module().random.randint(2, size=[neurons,ishape])*0.7 + 1j*(gpu.get_module().random.randint(2, size=[neurons,ishape])*2-1)*0.7
-            self.sigma = initFunc.ones(1, neurons)
+            self.weights = weights_initializer(xp, neurons, oshape)
+            self.biases = bias_initializer(xp, 1, oshape)
+            self.gamma =  initFunc.rbf_default(xp, neurons, ishape) #gpu.get_module().random.randint(2, size=[neurons,ishape])*0.7 + 1j*(gpu.get_module().random.randint(2, size=[neurons,ishape])*2-1)*0.7
+            self.sigma = initFunc.ones(xp, 1, neurons)
            
-            self._ddweights = self._dweights = self._prev_dweights = initFunc.zeros(neurons, oshape)
-            self._ddbiases = self._dbiases = self._prev_dbiases = initFunc.zeros(1, oshape)
+            self._ddweights = self._dweights = self._prev_dweights = initFunc.zeros(xp, neurons, oshape)
+            self._ddbiases = self._dbiases = self._prev_dbiases = initFunc.zeros(xp, 1, oshape)
             
-            self._prev_dgamma = self._dgamma = initFunc.zeros(neurons, ishape)
-            self._prev_dsigma = self._dsigma = initFunc.zeros(1, neurons)
+            self._prev_dgamma = self._dgamma = initFunc.zeros(xp, neurons, ishape)
+            self._prev_dsigma = self._dsigma = initFunc.zeros(xp, 1, neurons)
             
     
        

@@ -170,4 +170,5 @@ class CVRBFNN(rpnn.NeuralNetwork):
                                           reg_strength=reg_strength, 
                                           lambda_init=lambda_init,sigma_rate=sigma_rate,
                                           gamma_rate=gamma_rate,
-                                          cvnn=2))
+                                          cvnn=2,
+                                          xp=self.xp))

@@ -131,7 +131,7 @@ class DeepPTRBFNN(rpnn.NeuralNetwork):
             aux_i  = epsilon.imag * beta_i 
             
             # Compute the regularization l2
-            regl2 = (regFunc.l2_regularization(layer.lambda_init, layer.reg_strength, epoch))
+            regl2 = (regFunc.l2_regularization(self.xp, layer.lambda_init, layer.reg_strength, epoch))
             
             # Update weights and biases
             layer._dweights = self.xp.dot(self.xp.conj(layer.phi.T), psi) - (regl2 if layer.reg_strength else 0)*layer.weights
@@ -259,5 +259,6 @@ class DeepPTRBFNN(rpnn.NeuralNetwork):
                                           lambda_init=lambda_init, 
                                           sigma_rate=sigma_rate,
                                           gamma_rate=gamma_rate,
-                                          cvnn=4))
+                                          cvnn=4,
+                                          xp=self.xp))
                 

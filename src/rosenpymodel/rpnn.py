@@ -28,7 +28,7 @@ class NeuralNetwork():
     """
    
     def __init__(self, cost_func=costFunc.mse, learning_rate=1e-3, lr_decay_method=decayFunc.none_decay,  
-                 lr_decay_rate=0.0, lr_decay_steps=1, momentum=0.0, patience=10000000000000, xp=None):     
+                 lr_decay_rate=0.0, lr_decay_steps=1, momentum=0.0, patience=10000000000000, gpu_enable=False):     
         """ 
         The __init__ method is the constructor of the NeuralNetwork class. 
         It initializes the model with default values for various parameters, like
@@ -84,15 +84,14 @@ class NeuralNetwork():
                 until the loss in the validation dataset decreases sufficiently for the training to 
                 be terminated.
                 
-            xp: str, optional.
-                The xp attribute stores the module for performing computations (e.g., NumPy or GPU module). 
-                It can be set directly by the user or automatically by the system.
+            gpu_enable: bool.
+                The gpu_enable defines whether GPU or CPU will be used.
         Returns
         -------
         None.
         """
         
-        self.xp = xp if xp is not None else gpu.get_module()
+        self.xp = gpu.module(gpu_enable) 
         self.layers = []
         self.cost_func = cost_func
         self.momentum = momentum
@@ -168,7 +167,7 @@ class NeuralNetwork():
             self.learning_rate = self.lr_decay_method(self.lr_initial, epochs, self.lr_decay_rate, self.lr_decay_steps)
        
             # It generates batches of training data using the specified batch generation function
-            x_batch, y_batch = batch_gen(x_train, y_train, batch_size)
+            x_batch, y_batch = batch_gen(self.xp, x_train, y_train, batch_size)
         
         
             # For each batch, it performs feedforward and backpropagation to update the model's parameters
@@ -178,7 +177,7 @@ class NeuralNetwork():
                     self.backprop(y_batch1, y_pred, epoch)   
                     
             # After each epoch, it calculates the loss value for the validation data 
-            loss_val = self.cost_func(y_val, self.predict(x_val))
+            loss_val = self.cost_func(self.xp, y_val, self.predict(x_val))
             
             # If the patience value is set, it checks if the loss value has improved
             if self.patience != 10000000000000:
@@ -199,7 +198,7 @@ class NeuralNetwork():
             # If the epoch number is divisible by the verbose value, it calculates the loss value for 
             # the training data and updates the training history
             if epoch % verbose == 0:
-                loss_train = self.cost_func(y_train, self.predict(x_train))
+                loss_train = self.cost_func(self.xp, y_train, self.predict(x_train))
                 self._history['epochs'].append(epoch)
                 self._history['loss'].append(loss_train)
                 self._history['loss_val'].append(loss_val)

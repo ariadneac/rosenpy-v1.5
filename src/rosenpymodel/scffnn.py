@@ -180,4 +180,5 @@ class SCFFNN(rpnn.NeuralNetwork):
                                               activation=activation, 
                                               reg_strength=reg_strength, 
                                               lambda_init=lambda_init, 
-                                              cvnn=1))
+                                              cvnn=1,
+                                              xp=self.xp))
