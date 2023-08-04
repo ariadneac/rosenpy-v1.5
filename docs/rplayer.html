@@ -5,19 +5,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>rplayer module &mdash; RosenPy 1.5 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/ico_rosenpy.ico"/>
+      <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="static/ico_rosenpy.ico"/>
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/js/theme.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+        <script src="static/doctools.js"></script>
+        <script src="static/sphinx_highlight.js"></script>
+    <script src="static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="cvffnn module" href="cvffnn.html" />
@@ -34,7 +34,7 @@
           
           <a href="index.html">
             
-              <img src="_static/logo_rosenpy.png" class="logo" alt="Logo"/>
+              <img src="static/logo_rosenpy.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -85,7 +85,7 @@
           <li class="breadcrumb-item"><a href="rosenpymodule.html">RosenPyModule Package</a></li>
       <li class="breadcrumb-item active">rplayer module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/rplayer.rst.txt" rel="nofollow"> View page source</a>
+            <a href="sources/rplayer.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -111,7 +111,7 @@ See the GNU General Public License for more details.</p>
 along with RosenPy.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rplayer.Layer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rplayer.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ishape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oshape=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_initializer=&lt;function</span> <span class="pre">random_normal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_initializer=&lt;function</span> <span class="pre">random_normal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_initializer=&lt;function</span> <span class="pre">rbf_default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_initializer=&lt;function</span> <span class="pre">ones&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation=&lt;function</span> <span class="pre">tanh&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_strength=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_init=0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_rate=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_rate=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvnn=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xp=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rplayer.html#Layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rplayer.Layer" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rplayer.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ishape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neurons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oshape=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_initializer=&lt;function</span> <span class="pre">random_normal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_initializer=&lt;function</span> <span class="pre">random_normal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_initializer=&lt;function</span> <span class="pre">rbf_default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_initializer=&lt;function</span> <span class="pre">ones&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation=&lt;function</span> <span class="pre">tanh&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_strength=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_init=0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_rate=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_rate=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvnn=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xp=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="modules/rplayer.html#Layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rplayer.Layer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Specification for a layer to be passed to the Neural Network during construction.  This
 includes a variety of parameters to configure each layer based on its activation type.</p>
